@@ -1,0 +1,171 @@
+#logo{
+    animation: ease-out 5s mymove; 
+    /* Slide in animation of super slick logo */
+}
+
+body{
+    /* setting font and background image/color */
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+header{
+    /* center header elements with flex display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+
+/* navigational element modifications */
+.nav_links{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+} 
+
+.nav_item a, a:visited{
+    color: blue;
+}
+
+
+/* setting color and rounded edges for border of card elements */
+.card > header{
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+.card {
+    border-radius: 50px 50px 0 0;
+    flex-basis: 450px;
+}
+
+
+/* changes pricing element to be centered */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* styles the 5 gallery images at the bottom of the page */
+.gallery > img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+}
+
+/* animation modification */
+@keyframes mymove {
+    from {width: 25px;
+        opacity: 0;}
+    to {width: 475px;
+        opacity: 1;}
+}
+
+/* for desktop view */
+@media screen and (min-width: 900px){
+
+    header{
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* nav element modifications */
+    nav{
+        width: 100%;
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+    .pricing{
+        /* pricing modification  */
+        display: flex;
+        flex-direction: row;
+        flex-flow: nowrap;
+        justify-content: center;
+    }
+    .card{
+        /* set card sizing */
+        flex-basis: 275px;
+    }
+
+
+    /* set fixed header */
+    body > header{
+        position: fixed;
+        width: 100%;
+    }
+    .about{
+        padding-top: 100px;
+    }
+
+}
+
+/* animation for logo */
+@media (prefers-reduced-motion){
+    #logo{
+        animation: myAnimation 0s;
+    }
+}
+
+/* print view page */
+@media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /* nav element modification */
+    nav{
+        width: 100%;
+    }
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* pricing element changes */
+    .pricing{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        margin-bottom: 100px;
+    }
+
+    /* change border property of the cards */
+    .card{ 
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    .gallery, h2{
+        visibility: hidden;
+    }
+
+    /* change second child of card */
+    .card ul li:nth-child(2)::after{
+        content: "\1F44D";
+    }
+
+}
+
+
+
+
